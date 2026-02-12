@@ -1,0 +1,6 @@
+text
+# Ignore python cache and local data
+__pycache__/
+*.pickle
+.ipynb_checkpoints/
+.env
