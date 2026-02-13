@@ -1,16 +1,23 @@
 from quotes_scraper.quotes_scraper import QuotesScraper
 from random import choice
 import pickle
+import os
 
 class GuessQuoteAuthor:
 
     def __init__(self):
         # Define the scraper here as an instance attribute (self.scraper)
         self.scraper = QuotesScraper("clean")
+        self.default_path = "./data/"
+        if not os.path.exists(self.default_path):
+            self.base_dir = os.path.dirname(os.path.abspath(__file__))
+            self.default_path = os.path.join(base_dir, "data", "quotes.pickle")
+                
+        self.pickle_file_path = "".join([self.default_path, "quotes.pickle"])
 
     def load_quotes_data(self):
         try:
-            with open("./data/quotes.pickle", "rb") as file:
+            with open(self.pickle_file_path, "rb") as file:
                 quotes_list = pickle.load(file)
         except Exception as err:
             print(f"Pickle file does not exist. {err}")
