@@ -23,7 +23,7 @@ class GuessQuoteAuthor:
             print(f"Pickle file does not exist. {err}")
             print("Running scraper..")
             quotes_list = self.scraper.run_scraper()
-            self.scraper.save_quotes(quotes_list)
+            self.scraper.save_quotes(quotes_list, self.pickle_file_path)
         finally:
             print("Loaded quotes")
 
