@@ -11,12 +11,12 @@ class GuessQuoteAuthor:
         self.default_path = "./data"
         if not os.path.exists(self.default_path):
             self.base_dir = os.path.dirname(os.path.abspath(__file__))
-            print(self.base_dir)
+            print(f"Base Directory: {self.base_dir}")
             self.default_path = os.path.join(self.base_dir, "data")
-            print(self.default_path)
+            print(f"Data Folder Path: {self.default_path}")
                 
         self.pickle_file_path = "".join([self.default_path, "/quotes.pickle"])
-        print(self.pickle_file_path)
+        print(f"Pickle File Path: {self.pickle_file_path}")
 
     def load_quotes_data(self):
         try:
